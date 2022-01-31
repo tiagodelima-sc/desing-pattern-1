@@ -2,7 +2,10 @@ package main;
 
 import java.util.Scanner;
 
-
+import chain_of_responsability.ChequeComLimite;
+import chain_of_responsability.ChequeSemFundo;
+import chain_of_responsability.CompraMaquinas;
+import chain_of_responsability.SaldoEmpresa;
 import hook_method.OrdemComida;
 import hook_method.OrdemDeCompra;
 import hook_method.OrdemLimpeza;
@@ -43,7 +46,7 @@ public class Main {
 			System.out.println("(3) - Integracao da Empresa");
 			System.out.println("(4) - Notificacar o e-mail");
 			System.out.println("(5) - Controle de Estagiarios da Empresa");
-			System.out.println("(6) - Gerar XML");
+			System.out.println("(6) - Efetuar a Compra de Maquinas Industriais");
 			System.out.println("(7) - Forcar a Parada do Sistema");
 			
 			int selecionador = ler.nextInt();
@@ -304,9 +307,22 @@ public class Main {
 			
 			case 6:
 				
-			
-					
+				final CompraMaquinas compraMaquinas = new CompraMaquinas(100000);
+				calcularCompra(compraMaquinas);
 				
+				
+					final ChequeComLimite cheqL = new ChequeComLimite();
+					final ChequeSemFundo cheqS = new ChequeSemFundo();
+					final SaldoEmpresa sal = new SaldoEmpresa();
+					
+					System.out.println();
+					cheqL.setNext(cheqS);
+					cheqS.setNext(sal);
+					cheqL.calcularCompra(compraMaquinas);
+					System.out.println();
+					
+				continue;
+
 					
 			case 7:
 				
@@ -332,6 +348,11 @@ public class Main {
 			
 			
 		} while(tentarNovamente);
+		
+	}
+
+	private static void calcularCompra(CompraMaquinas compraMaquinas) {
+		// TODO Auto-generated method stub
 		
 	}
 

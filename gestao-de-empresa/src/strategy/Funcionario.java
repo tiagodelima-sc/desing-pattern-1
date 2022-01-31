@@ -2,7 +2,6 @@ package strategy;
 
 public class Funcionario {
 	
-	
 	private double salarioHora;
 	private double salarioMensal;
 	private double horasTrabalhadas;
