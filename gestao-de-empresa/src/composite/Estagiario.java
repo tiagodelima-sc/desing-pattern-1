@@ -8,7 +8,6 @@ public class Estagiario {
 	private int codCadastro;
 	
 	public Estagiario(String nome, String nomeCurso, int idade, int codCadastro) {
-		
 		this.nome = nome;
 		this.idade = idade;
 		this.nomeCurso = nomeCurso;

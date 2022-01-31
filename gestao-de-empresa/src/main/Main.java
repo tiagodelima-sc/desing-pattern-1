@@ -1,5 +1,6 @@
 package main;
 
+
 import java.util.Scanner;
 
 import chain_of_responsability.ChequeComLimite;
@@ -9,6 +10,8 @@ import chain_of_responsability.SaldoEmpresa;
 import hook_method.OrdemComida;
 import hook_method.OrdemDeCompra;
 import hook_method.OrdemLimpeza;
+import null_object.CardapioAbstract;
+import null_object.VerificaComida;
 import observer.AtualizarMsg;
 import observer.DadosMsg;
 import observer.MensagensObserver;
@@ -25,6 +28,9 @@ import composite.EmpresaJunior;
 
 public class Main {
 	
+	//Classe Chain of Responsability
+	private static void calcularCompra(CompraMaquinas compraMaquinas) {}
+	
 	public static void main(String[] args) {
 		
 		Scanner ler = new Scanner(System.in);
@@ -33,21 +39,20 @@ public class Main {
 		//Menu de opcoes do gestao de empresas.
 		//enquanto for verdadeiro, execute..
 		
+		
 		do {
 			
 			int sair = 10;
 			
-			System.out.println("===== GESTAO DE EMPRESAS =====");
-			System.out.println();
-			System.out.println("Escolha uma opcao do menu");
-			System.out.println();
+			System.out.println("\n===== GESTAO DE EMPRESAS ===== \n");
 			System.out.println("(1) - Gerenciar Pagamento dos Funcionarios");
 			System.out.println("(2) - Verificar Gastos da Empresa");
 			System.out.println("(3) - Integracao da Empresa");
-			System.out.println("(4) - Notificacar o e-mail");
+			System.out.println("(4) - Notificar o E-mail dos Funcionarios");
 			System.out.println("(5) - Controle de Estagiarios da Empresa");
 			System.out.println("(6) - Efetuar a Compra de Maquinas Industriais");
-			System.out.println("(7) - Forcar a Parada do Sistema");
+			System.out.println("(7) - Conferir Cardapio da Semana");
+			System.out.println("(8) - Forcar a Parada do Sistema");
 			
 			int selecionador = ler.nextInt();
 			
@@ -323,8 +328,26 @@ public class Main {
 					
 				continue;
 
-					
+				
 			case 7:
+				
+				CardapioAbstract comidaOne = new VerificaComida("Verdura");
+				CardapioAbstract comidaTwo = new VerificaComida("Arroz");
+				CardapioAbstract comidaThree = new VerificaComida("Carne");
+				CardapioAbstract comidaFour = new VerificaComida("Salada");
+				CardapioAbstract comidaFive = new VerificaComida("Peixe");
+				CardapioAbstract comidaSix = new VerificaComida("Feijoada");
+				
+				System.out.println("====== Cardapio Segunda: ======" + "\n" + comidaTwo.getNomeComida() + "\n" + comidaTwo.getNomeComida() + "\n" + comidaThree.getNomeComida() + "\n");
+				System.out.println("====== Cardapio Terca: ====== " + "\n"  + comidaTwo.getNomeComida() + "\n" + comidaSix.getNomeComida() + "\n");
+				System.out.println("====== Cardapio Quarta: ====== " + "\n"  + comidaOne.getNomeComida() + "\n" + comidaFour.getNomeComida() + "\n" + comidaTwo.getNomeComida() + "\n");
+				System.out.println("====== Cardapio Quinta: ====== " + "\n"  + comidaFive.getNomeComida() + "\n");
+				System.out.println("====== Cardapio Sexta: ====== " + "\n"  + comidaSix.getNomeComida() + "\n" + comidaFour.getNomeComida() + "\n");
+				
+				continue;
+			
+					
+			case 8:
 				
 				if (tentarNovamente == true) 
 				{
@@ -351,10 +374,7 @@ public class Main {
 		
 	}
 
-	private static void calcularCompra(CompraMaquinas compraMaquinas) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
 

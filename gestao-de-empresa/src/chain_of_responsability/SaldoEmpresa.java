@@ -14,7 +14,6 @@ public class SaldoEmpresa implements Cheque {
 			} else {
 				System.out.println("Aprovado: O pagamento foi aprovado e Descontado do Saldo da Empresa");
 			
-				
 			}
 			
 		}	
